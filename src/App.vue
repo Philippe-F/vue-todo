@@ -4,6 +4,7 @@ and style for the CSS (style is global to the application).
 <template>
   <div id="app">
     <Header />
+    <AddTodo />
     <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
@@ -35,12 +36,14 @@ and style for the CSS (style is global to the application).
 
 import Todos from "./components/Todos"; //import todos 
 import Header from "./components/layout/Header";
+import AddTodo from "./components/AddTodo";
 
 export default {
   name: 'App',
   components: {
     // [Notes Ref] HelloWorld
 
+    AddTodo,
     Header,
     Todos //add Todos to the components 
   },
@@ -90,5 +93,18 @@ export default {
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #666; 
 }
 </style>
