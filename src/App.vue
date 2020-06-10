@@ -3,6 +3,7 @@ and style for the CSS (style is global to the application).
 
 <template>
   <div id="app">
+    <Header />
     <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
@@ -33,12 +34,14 @@ and style for the CSS (style is global to the application).
 // [Notes Ref] import HelloWorld from './components/HelloWorld.vue'
 
 import Todos from "./components/Todos"; //import todos 
+import Header from "./components/layout/Header";
 
 export default {
   name: 'App',
   components: {
     // [Notes Ref] HelloWorld
 
+    Header,
     Todos //add Todos to the components 
   },
   // This is going to be a todos list, so we need to access the "todos" from 
