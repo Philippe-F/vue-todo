@@ -5,6 +5,8 @@ and style for the CSS (style is global to the application).
   <div id="app">
     <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+
+    <Todos /> <!-- embed Todos in to the markup -->
   </div>
 </template>
 
@@ -23,10 +25,14 @@ and style for the CSS (style is global to the application).
 // component. 
 // [Notes Ref] import HelloWorld from './components/HelloWorld.vue'
 
+import Todos from "./components/Todos"; //import todos 
+
 export default {
   name: 'App',
   components: {
     // [Notes Ref] HelloWorld
+
+    Todos //add Todos to the components 
   },
   // This is going to be a todos list, so we need to access the "todos" from 
   // multiple components (ex. todos.vue, todoItem.vue, addTodoForm.vue, etc). To
