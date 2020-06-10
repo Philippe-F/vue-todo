@@ -12,7 +12,7 @@
 <script>
 // allows us to make unique ids since this project doesnt 
 // have a db.
-import { uuid } from 'vue-uuid';
+// import { uuid } from 'vue-uuid';
 
 export default {
   name: "AddTodo",
@@ -27,7 +27,7 @@ export default {
       e.preventDefault();
 
       const newTodo = {
-        id: uuid.v4(),
+        // id: uuid.v4(),
         title: this.title,
         completed: false
       }

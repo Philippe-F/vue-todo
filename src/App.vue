@@ -39,6 +39,7 @@ and style for the CSS (style is global to the application).
 import Todos from "./components/Todos"; //import todos 
 import Header from "./components/layout/Header";
 import AddTodo from "./components/AddTodo";
+import axios from "axios"; 
 
 export default {
   name: 'App',
@@ -57,32 +58,49 @@ export default {
   data() {
     return {
       // todos are an array of objects 
-      todos: [
-        {
-          id: 1,
-          title: "Todo One",
-          completed: false
-        },
-        {
-          id: 2,
-          title: "Todo Two",
-          completed: true
-        },
-        {
-          id: 3,
-          title: "Todo Three",
-          completed: false
-        }
-      ]
+      todos: []
     }
   },
   methods: {
     deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
+      // This axios call makes a delete request to the server, we get a response back,
+      // and then we delete it from the UI. 
+      axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        .then(() => this.todos = this.todos.filter(todo => todo.id !== id))
+        .catch(err => console.log(err));
     },
     addTodo(newTodo) {
-      this.todos = [...this.todos, newTodo]
+      // Using destructuring to pull out title and completed from the newTodo object.
+      const { title, completed } = newTodo;
+
+
+      axios.post('https://jsonplaceholder.typicode.com/todos', {
+        title: title, completed: completed
+      })
+      // When you make a post request to JSONPlaceholder it gives you back that todo
+      // along with the id it creates for you. 
+
+      // On submit oof the todo the axios call makes a post request to JSONPlaceholder,
+      // gives us a respone, then it gets added to the UI. 
+        .then(res => this.todos = [...this.todos, res.data])
+        .catch(err => console.log(err));
     }
+  },
+  // We are using JSONPlaceholder which provide us with a fake REST API for testing 
+  // and prototyping. It works as a real backend that we can make GET, POST, DELETE, 
+  // PATCH requests to. 
+
+  // To make our initial request we are goting to use a special method called "created()".
+  // It work similar to how "ComponentDidMount" works in REACT, it fires off when the
+  // component loads. 
+  created() {
+    axios.get("https://jsonplaceholder.typicode.com/todos?_limit=5")
+    // This axios call is going to give us a response and that response has a data 
+    // value; res.todos will give us our todos. The code in the ".then()" will fill 
+    // the todos array in "data()" (state) with the todos we get back from the axios 
+    // request. 
+      .then(res => this.todos = res.data)
+      .catch(err => console.log(err));
   }
 }
 </script>
