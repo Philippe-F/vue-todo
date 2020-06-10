@@ -6,7 +6,13 @@ and style for the CSS (style is global to the application).
     <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
-    <Todos /> <!-- embed Todos in to the markup -->
+
+    <!-- To get the todos from the "data()" function into the Todos component is to
+    pass them in (as props) with a directive called "v-bind". Since this is
+    being passed in as a prop, we need to goto the todos component (Todos.vue)
+    and add the props to the todos component export. -->
+    
+    <Todos v-bind:todos="todos"/> <!-- embed Todos in to the markup -->
   </div>
 </template>
 
