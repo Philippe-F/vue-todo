@@ -6,7 +6,7 @@ the is-complete styling rendered on top of the static class (todo-item) -->
       <!-- Use the "v-on:change" event to call the markComplete method when the input 
       changes.  -->
       <input type="checkbox" v-on:change="markComplete">
-      {{todo.title}}</p>
+      {{todo.title}}
       <!-- Now we want to be able to delete each todo. To do that we must traverse up to
       where the todos array is in the "data()", find the id of the object we want to 
       delete, and delete it. 
@@ -21,6 +21,7 @@ the is-complete styling rendered on top of the static class (todo-item) -->
       Now, to catch the emit we must go into Todo.vue and add a "v-on" on to the 
       embeded TodoItem.  -->
       <button @click="$emit('del-todo', todo.id)" class="del">x</button>
+    </p>
   </div>
 </template>
 
