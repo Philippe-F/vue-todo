@@ -4,7 +4,9 @@ and style for the CSS (style is global to the application).
 <template>
   <div id="app">
     <Header />
-    <AddTodo />
+    <!-- "v-on" is catching the emit from the addTodo method in AddTodo.vue -->
+    <AddTodo v-on:add-todo="addTodo"/>
+
     <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
@@ -77,6 +79,9 @@ export default {
   methods: {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    addTodo(newTodo) {
+      this.todos = [...this.todos, newTodo]
     }
   }
 }
