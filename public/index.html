@@ -1,0 +1,24 @@
+<!-- The page that is served in the browser. Vue is a single page application framework (SPA).
+It is used to create SPA and it loads one file (this index.html). "<div id="app"></div>"
+is a placeholder for the vue application. In the src folder there is a main.js which 
+is te entry point to Vue. In main.js we import Vue and the app from App.vue, then
+we create a new Vue instance and rendering the app (render: h => h(App)) inside 
+of an element with the id of "app" ( .$mount('#app') in the index.html ).  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
