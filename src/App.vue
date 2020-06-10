@@ -11,8 +11,9 @@ and style for the CSS (style is global to the application).
     pass them in (as props) with a directive called "v-bind". Since this is
     being passed in as a prop, we need to goto the todos component (Todos.vue)
     and add the props to the todos component export. -->
-    
-    <Todos v-bind:todos="todos"/> <!-- embed Todos in to the markup -->
+
+    <!-- embed Todos in to the markup -->
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> 
   </div>
 </template>
 
@@ -65,6 +66,11 @@ export default {
           completed: false
         }
       ]
+    }
+  },
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
     }
   }
 }

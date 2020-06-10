@@ -9,7 +9,12 @@ This is a serperate component to display the todos
 
     <div v-bind:key="todo.id" v-for="todo in todos">
       <!-- as we iterate we bind each todo to a TodoItem  -->
-      <TodoItem v-bind:todo="todo"/> 
+
+      <!-- We are passing a "v-on" event handler to catch the event that is fired off 
+      from the TodoItem. The name on the event in TodoItem.vue is "del-todo" so 
+      that is what we name our "v-on". We want to pass another $emit because we 
+      want to go up and catch the emit in App.vue.  -->
+      <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)"/> 
     </div>
   </div>
 </template>
