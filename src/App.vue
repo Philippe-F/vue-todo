@@ -35,7 +35,7 @@ export default {
   
   data() {
     return {
-      todos are an array of objects 
+      // todos are an array of objects 
       todos: [
         {
           id: 1,
