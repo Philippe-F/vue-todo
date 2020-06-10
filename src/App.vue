@@ -3,7 +3,7 @@ and style for the CSS (style is global to the application).
 
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <!-- [Notes Ref] <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- [Notes Ref] <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
@@ -27,6 +27,33 @@ export default {
   name: 'App',
   components: {
     // [Notes Ref] HelloWorld
+  },
+  // This is going to be a todos list, so we need to access the "todos" from 
+  // multiple components (ex. todos.vue, todoItem.vue, addTodoForm.vue, etc). To
+  // access that data we store it in the "data()" function and return the data as 
+  // an object. 
+  
+  data() {
+    return {
+      todos are an array of objects 
+      todos: [
+        {
+          id: 1,
+          title: "Todo One",
+          completed: false
+        },
+        {
+          id: 2,
+          title: "Todo Two",
+          completed: true
+        },
+        {
+          id: 3,
+          title: "Todo Three",
+          completed: false
+        }
+      ]
+    }
   }
 }
 </script>
